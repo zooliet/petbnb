@@ -1,0 +1,13 @@
+<div class='content'>
+	<div class='logo'>
+		<%= link_to 'PetBnB', root_url %>
+	</div>
+	
+	<div id="user_nav">
+		<% if rand(2) == 1 %>
+			<span>Welcome, 광성</span> | <%= link_to 'Logout', '#' %> 
+		<% else %>
+			<%= link_to 'Log in', '#' %> or <%= link_to 'Sign up', '#' %>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  to_date: 2013-04-10 22:36:05
+  from_date: 2013-04-10 22:36:05
+  customer_id: 1
+  pet_house_id: 1
+
+two:
+  to_date: 2013-04-10 22:36:05
+  from_date: 2013-04-10 22:36:05
+  customer_id: 1
+  pet_house_id: 1
