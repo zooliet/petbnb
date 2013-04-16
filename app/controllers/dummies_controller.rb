@@ -2,12 +2,20 @@ class DummiesController < ApplicationController
   # GET /dummies
   # GET /dummies.json
   def index
-    @dummies = Dummy.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @dummies }
+   
+    todate = params[:todate]
+    fromdate = params[:fromdate]
+    if params[:search].present?
+      @dummies = PetHouse.where("address ilike ?", params[:search])
+    else
+      @dummies = PetHouse.all
     end
+    #@dummies = Dummy.all
+
+    #respond_to do |format|
+     # format.html # index.html.erb
+     # format.json { render json: @dummies }
+   # end
   end
 
   # GET /dummies/1
