@@ -1,6 +1,7 @@
 Petbnb::Application.routes.draw do
-  resources :dummies
+
+  resources :dummies, :homes
   
-  root to: 'dummies#index'
+  root to: 'homes#index'
 
 end
