@@ -3,13 +3,7 @@ class DummiesController < ApplicationController
   # GET /dummies.json
   def index
    
-    todate = params[:todate]
-    fromdate = params[:fromdate]
-    if params[:search].present?
-      @dummies = PetHouse.where("address ilike ?", params[:search])
-    else
-      @dummies = PetHouse.all
-    end
+
     #@dummies = Dummy.all
 
     #respond_to do |format|

@@ -3,4 +3,9 @@ class PetHouse < ActiveRecord::Base
   
   belongs_to :user
   has_many :reservations
+  
+  def self.search(opt)
+    where("address ilike ?", "%#{opt[:search]}%")
+  end
+  
 end
