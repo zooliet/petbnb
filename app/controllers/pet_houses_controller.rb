@@ -1,16 +1,12 @@
-class PetHousesController < ApplicationController
-  
-  
+class PetHousesController < ApplicationController  
   def index
-    todate = params[:todate]
-    fromdate = params[:fromdate]
-  
-    @pethouses = PetHouse.search(params)
-
+    # @pethouses = PetHouse.search(params)
+    @pet_houses = PetHouse.find_it(params[:search])
+    @search = Search.new(params[:search])
   end
 
   def show
-    @pethouse = PetHouse.find(params[:id])
+    @pet_house = PetHouse.find(params[:id])
   end
 
   def new

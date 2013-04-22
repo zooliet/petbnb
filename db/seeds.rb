@@ -21,11 +21,11 @@ DESCRIPTION = %w(Lorem ipsum dolor sit amet consectetur adipisicing elit sed do 
 
 puts "*** Creating User ***"
 
-10.times do 
+10.times do |i|
   User.create do |u|
     u.name  = NAMES[rand(NAMES.length-1)]
-    u.email = "#{u.name.downcase}_#{u.id}@google.com"
-    u.phone = "010-000-#{u.id}"
+    u.email = "#{u.name.downcase}_#{i}@google.com"
+    u.phone = "010-000-00#{i}"
   end
 end
 
@@ -36,6 +36,7 @@ puts "*** Creating PetHouse ***"
   4.times do 
     u.pet_houses.build do |house|
       house.address = CITIES[rand(CITIES.length-1)]
+      house.title = (3 + rand(7)).times.map { DESCRIPTION[rand(DESCRIPTION.length-1)] }.join(" ") + "."
       house.desc = (3 + rand(7)).times.map { DESCRIPTION[rand(DESCRIPTION.length-1)] }.join(" ") + "."
       house.price = 10000 + rand(20) * 5000
     end

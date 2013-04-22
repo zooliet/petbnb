@@ -1,44 +1,50 @@
-<h1> <%= "#{@pethouse.user.name}'House" %> </h1>
+<div id="pet_house">
+	<div id="pet_house_detail">
+		<table>
+		  <tr>
+		    <td class="title">Address</td>
+				<td class="desc"><%= @pet_house.address %></td>
+			</tr>
+		<tr>
+		    <td class="title">Desc</td>
+		    <td class="desc"><%= @pet_house.desc %></td>
+		</tr>
 
-<table>
-  <tr>
-    <td>Address</td>
-		<td><%= @pethouse.address %></td>
-	</tr>
-  
-<tr>
-    <td>Desc</td>
-    <td><%= @pethouse.desc %></td>
-</tr>
+		<tr>
+		    <td class="title">Price</td>
+		    <td class="desc"><%= number_to_currency(@pet_house.price, unit: '원', precision: 0, format: "%n %u") %></td>
+		</tr>
 
-<tr>
-    <td>Price</td>
-    <td><%= @pethouse.price %></td>
-</tr>
+		<tr>
+		    <td class="title">Name</td>
+				<td class="desc"><%= @pet_house.user.name %></td>
+		</tr>
+		<tr>
+		    <td class="title">E-Mail</td>
+				<td class="desc"><%= @pet_house.user.email %></td>
+		</tr>
+		<tr>
+				<td class="title">Phone</td>
+				<td class="desc"><%= @pet_house.user.phone %></td>
+		</tr>
+		<tr>
+				<td class="title">Updated</td>
+				<td class="desc"><%= @pet_house.updated_at.to_s(:long) %></td>
+		</tr>
+		<tr>
+				<td class="title"></td>
+				<td class="desc">
+					<%= link_to "Reservation", new_reservation_path %> or
+					<%= link_to "Back to list", pet_houses_path(search: params[:search]) %>
+				</td>
+		 </tr>
+		</table>
+	</div>
 
-<tr>
-    <td>Name</td>
-		<td><%= @pethouse.user.name %></td>
-</tr>
-<tr>
-    <td>E-Mail</td>
-		<td><%= @pethouse.user.email %></td>
-</tr>
-<tr>
-		<td>Phone</td>
-		<td><%= @pethouse.user.phone %></td>
-</tr>
-<tr>
-		<td>Updated at</td>
-		<td><%= @pethouse.updated_at %></td>
-</tr>
-<tr>
-		<td>Reservation</td>
-		<td><%= link_to "Reservation", new_reservation_path %> </td>
- </tr>
-<tr>
-		<td>Link</td>
-		<td><%= link_to "Back", pet_houses_path %> </td>
- </tr>
+	<div id="pet_house_map">
 
-</table>
+	</div>
+
+</div>
+
+

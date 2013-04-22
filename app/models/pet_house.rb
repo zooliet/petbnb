@@ -8,4 +8,11 @@ class PetHouse < ActiveRecord::Base
     where("address ilike ?", "%#{opt[:search]}%")
   end
   
+  def self.find_it(conditions = {})
+    if conditions
+      where("address ilike :address", address: "%#{conditions[:location]}%")
+    else
+      scoped
+    end
+  end
 end

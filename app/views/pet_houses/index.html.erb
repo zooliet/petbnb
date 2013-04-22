@@ -1,20 +1,20 @@
-<h1>Listing Pet Houses</h1>
+<div id="pet_houses">
+	<div class="search">
+		<%= form_for(@search, url: pet_houses_path, method: :get) do |f| %>
+			<%= f.text_field :location, placeholder: "Location"%>
+			<%= f.text_field :from_date, placeholder: "Check in", size: 10 %>
+			<%= f.text_field :to_date, placeholder: "Check out", size: 10 %>
+			<%= f.select :pets, 
+					options_for_select([["1 pet", "1"], ["2 pets", "2"], ["3+ pets", "3"]], ["#{@search.pets}"])%>
+			<%= f.submit "Search", name: nil %>
+		<% end %>
+	</div>
 
-<table>
-  <tr>
-    <th>Address</th>
-    <th>Desc</th>
-    <th>Price</th>
-		<th>Link</th>
-  </tr>
-
-<% @pethouses.each do |pethouse| %>
-  <tr>
-    <td><%= pethouse.address %></td>
-    <td><%= pethouse.desc %></td>
-    <td><%= pethouse.price %></td>
-    <td><%= link_to "Detail", pet_house_path(pethouse) %> </td>
-  </tr>
-<% end %>
-
-</table>
+	<% @pet_houses.each do |house| %>
+		<div class="pet_house_brief <%= cycle('odd', 'even')  %>">
+			<span class="title"><%= link_to house.title.truncate(60), pet_house_path(house, search: params[:search]) %></span>	
+			<span class="address"><%= house.address %></span>	
+			<span class="price"><%= number_to_currency(house.price, unit: '원', precision: 0, format: "%n %u") %></span>
+		</div>
+	<% end %>
+</div>

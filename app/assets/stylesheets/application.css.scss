@@ -1,21 +1,5 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
- */
-
-
-body {
-	
-}
+@import "compass";
+@import "scaffolds";
 
 div#header {
 	width: 100%;
@@ -35,7 +19,7 @@ div#header {
 		a {
 			font-size: 48px;
 			font-weight: bold;
-			color: #214EBC;
+			color: rgba(black, 0.8);
 			text-decoration: none;
 			
 			&:hover {
@@ -77,11 +61,117 @@ div#footer {
 	}
 }
 
-
 div#contents {
 	width: 960px;
 	margin: 0 auto;
 	min-height: 480px;
 }
 
+div#homes {
+	padding-top: 96px;
+}
+
+div.search {
+	text-align: center;
+	height: 48px;
+	margin: 12px auto;
+	padding-top: 12px;
+	border: 1px solid rgba(black, 0.1);
+	@include border-radius(8px);
+	background-color: rgba(black, 0.5);
+	
+	input, select {
+		font-size: 16px;
+		padding: 5px 15px;
+		color: rgba(black, 0.8);
+		border: 1px solid rgba(black, 0.1);
+		@include border-radius(4px);
+		-webkit-appearance: none;
+	}
+}
+
+div#pet_houses {
+	div.pet_house_brief {
+		position: relative;
+		margin: 0 auto;
+		width: 80%;
+		min-height: 60px;
+		padding: 4px;
+
+		span {
+			display: block;
+			position: absolute;
+			font-size: 16px;
+		}
+		
+		span.title {
+			font-weight: bold;
+			top: 12px;
+			left: 12px;
+		}
+		span.address {
+			top: 36px;
+			left: 12px;			
+		}
+		span.price {
+			top: 12px	;
+			right: 12px;
+			font-size: 24px;
+		}
+		a {
+			color: black;
+		}
+	}
+	
+	div.odd {
+		background-color: rgba(black, 0.1);
+	}
+	div.even {
+		background-color: rgba(white, 0.1);
+	}
+}
+
+div#pet_house {
+	position: relative;
+	margin: 24px auto;
+	width: 100%;
+	
+	div#pet_house_detail {
+		width: 60%;
+		table {
+			width: 100%;
+			font-size: 16px;
+			td.title {
+				width: 20%;
+				height: 48px;
+				font-weight: bold;
+//				text-align: right;
+			}
+			td.desc {
+				padding-left: 10px;
+			}
+		}
+	}
+
+	div#pet_house_map {
+		position: absolute;
+		top: 0px;
+		right: 0px;
+
+		width: 300px;
+		height: 300px;
+		background-color: rgba(black, 0.4);
+	}
+	
+	div#pet_house_photos {
+		position: absolute;
+		top: 324px;
+		right: 0px;
+
+		width: 300px;
+		height: 300px;
+		background-color: rgba(black, 0.4);	
+	}
+	
+}
 
