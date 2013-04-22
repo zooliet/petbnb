@@ -1,2 +1,11 @@
-<h1>Reservations#index</h1>
-<p>Find me in app/views/reservations/index.html.erb</p>
+<div id="reservations">
+	<h2 id="month">
+		<%= link_to "<<", date: @date.prev_month %>
+		<%= @date.strftime("%B %Y") %>   
+		<%= link_to ">>", date: @date.next_month %>
+	</h2>
+		
+	<%= calendar(3.weeks.from_now.to_date) do |date| %>
+		<%= date.day  %>
+	<% end %>	
+</div>

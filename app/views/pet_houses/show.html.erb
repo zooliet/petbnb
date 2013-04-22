@@ -2,30 +2,40 @@
 	<div id="pet_house_detail">
 		<table>
 		  <tr>
+		    <td class="title">title</td>
+				<td class="desc"><%= @pet_house.try(:title) %></td>
+			</tr>
+		  <tr>
 		    <td class="title">Address</td>
 				<td class="desc"><%= @pet_house.address %></td>
 			</tr>
 		<tr>
-		    <td class="title">Desc</td>
+		    <td class="title">Description</td>
 		    <td class="desc"><%= @pet_house.desc %></td>
 		</tr>
 
 		<tr>
-		    <td class="title">Price</td>
+		    <td class="title">Price per Day</td>
 		    <td class="desc"><%= number_to_currency(@pet_house.price, unit: '원', precision: 0, format: "%n %u") %></td>
 		</tr>
 
 		<tr>
-		    <td class="title">Name</td>
-				<td class="desc"><%= @pet_house.user.name %></td>
+		    <td class="title">Features</td>
+		    <td class="desc">
+					<ul>
+						<li><%= @pet_house.pets %></li>
+						<li>크기: <%= @pet_house.size %></li>
+						<li><%= @pet_house.overnight? ? '숙박 가능' : '숙박 불가' %></li>
+					</ul>
+				</td>
 		</tr>
+
 		<tr>
-		    <td class="title">E-Mail</td>
-				<td class="desc"><%= @pet_house.user.email %></td>
-		</tr>
-		<tr>
-				<td class="title">Phone</td>
-				<td class="desc"><%= @pet_house.user.phone %></td>
+		    <td class="title">Owner</td>
+				<td class="desc">
+					<%= @pet_house.user.name %>
+					(<%= @pet_house.user.email %>)
+				</td>
 		</tr>
 		<tr>
 				<td class="title">Updated</td>
@@ -42,7 +52,13 @@
 	</div>
 
 	<div id="pet_house_map">
-
+		<% if @pet_house.longitude %>
+			<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=320x200&sensor=false&zoom=16&markers=#{@pet_house.latitude}%2C#{@pet_house.longitude}" %>
+		<% end %>
+	</div>
+	
+	<div id="pet_house_photo">
+		<%= image_tag(@pet_house.image_url(:thumb))if @pet_house.image? %>
 	</div>
 
 </div>

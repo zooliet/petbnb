@@ -2,8 +2,8 @@
 	<div class="search">
 		<%= form_for(@search, url: pet_houses_path, method: :get) do |f| %>
 			<%= f.text_field :location, placeholder: "Location"%>
-			<%= f.text_field :from_date, placeholder: "Check in", size: 10 %>
-			<%= f.text_field :to_date, placeholder: "Check out", size: 10 %>
+			<%= f.text_field :from_date, placeholder: "Check in", size: 14 %>
+			<%= f.text_field :to_date, placeholder: "Check out", size: 14 %>
 			<%= f.select :pets, 
 					options_for_select([["1 pet", "1"], ["2 pets", "2"], ["3+ pets", "3"]], ["#{@search.pets}"])%>
 			<%= f.submit "Search", name: nil %>

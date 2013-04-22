@@ -10,9 +10,17 @@ class PetHousesController < ApplicationController
   end
 
   def new
+    @pet_house = PetHouse.new
   end
 
   def create
+    # @pet_house = PetHouse.new(params[:pet_house])
+    @pet_house = current_user.pet_houses.build(params[:pet_house])
+    if @pet_house.save
+      redirect_to @pet_house
+    else
+      render :new
+    end
   end
 
   def edit

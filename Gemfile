@@ -19,6 +19,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 	gem 'compass-rails'
+	gem 'jquery-ui-rails'
 end
 
 gem 'jquery-rails'
@@ -40,3 +41,6 @@ gem 'jquery-rails'
 
 gem 'hirb'
 gem 'active_attr'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'geocoder'
