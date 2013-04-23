@@ -40,3 +40,4 @@ gem 'jquery-rails'
 
 gem 'hirb'
 gem 'active_attr'
+gem 'geocoder'

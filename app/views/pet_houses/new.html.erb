@@ -1,2 +1,86 @@
-<h1>PetHouses#new</h1>
-<p>Find me in app/views/pet_houses/new.html.erb</p>
+
+<table>
+<p> 숙박 시설을 등록해 주세요. </p>
+<%= form_for(@pet_house) do |f| %>
+<tr>
+	<td>
+			 <%= f.label :title %>
+	</td>
+	<td>
+			<%= f.text_field :title, placeholder: "Title" %>
+			<%=  @pet_house.errors[:title].to_sentence %>
+	</td>
+
+</tr>
+
+<tr>
+	<td>
+			 <%= f.label :address %>
+	</td>
+	<td>
+			<%= f.text_field :address, placeholder: "Address" %>
+			<%=  @pet_house.errors[:address].to_sentence %>
+	</td>
+</tr>
+
+	<tr>
+		<td>
+				 <%= f.label :desc %>
+		</td>
+		<td>
+			<%= f.text_area :desc, placeholder: "Description" %>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+				 <%= f.label :price %>
+		</td>
+		<td>
+			<%= f.text_field :price, placeholder: "Price" %>
+			<%=  @pet_house.errors[:price].to_sentence %>
+		</td>
+
+	</tr>
+
+	<tr>
+		<td>
+				 <%= f.label :no_of_pets %>
+		</td>
+		<td>
+			<%= f.select :no_of_pets, 
+					options_for_select([["1 pet", "1"], ["2 pets", "2"], ["3+ pets", "3"]])%>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+				 <%= f.label :size %>
+		</td>
+		<td>
+			<%= f.text_field :size, placeholder: "Size" %>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+				 <%= f.label :overnight %>
+		</td>
+		<td>
+			<%= f.check_box :overnight, checked: TRUE %>
+		</td>
+	</tr>
+
+
+
+
+
+	<tr>
+		<td>
+			<%= f.submit "등 록", name: nil %>
+		</td>
+	</tr>
+	
+
+<% end %>
+</table>

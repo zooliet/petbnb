@@ -3,11 +3,13 @@
 		<%= link_to 'PetBnB', root_url %>
 	</div>
 	
+	
 	<div id="user_nav">
 		<% if current_user %>
 			<span>Welcome, <%= current_user.name %></span> | <%= link_to 'Logout', '#' %> 
 		<% else %>
 			<%= link_to 'Log in', '#' %> or <%= link_to 'Sign up', '#' %>
 		<% end %>
+		<%= link_to '등 록', new_pet_house_path %>
 	</div>
 </div>

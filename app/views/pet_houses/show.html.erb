@@ -1,6 +1,11 @@
 <div id="pet_house">
 	<div id="pet_house_detail">
 		<table>
+			<tr>
+		    <td class="title">Title</td>
+				<td class="desc"><%= @pet_house.title %></td>
+			</tr>
+			
 		  <tr>
 		    <td class="title">Address</td>
 				<td class="desc"><%= @pet_house.address %></td>
@@ -15,6 +20,18 @@
 		    <td class="desc"><%= number_to_currency(@pet_house.price, unit: '원', precision: 0, format: "%n %u") %></td>
 		</tr>
 
+		<tr>
+		    <td class="title">Features</td>
+		    <td class="desc">
+		    	<ul>
+		    		<li> <%= @pet_house.pets %></li>
+						<li> <%= "Size : #{@pet_house.size} "%></li>
+						<li> <%= @pet_house.overnight? ? "숙박 가능" : "숙박 불가" %></li>
+		    	</ul>
+		
+		    </td>
+		</tr>
+		
 		<tr>
 		    <td class="title">Name</td>
 				<td class="desc"><%= @pet_house.user.name %></td>
@@ -42,7 +59,7 @@
 	</div>
 
 	<div id="pet_house_map">
-
+          <%= image_tag "http://maps.googleapis.com/maps/api/staticmap?size=320x200&sensor=false&zoom=16&markers=#{@pet_house.latitude}%2C#{@pet_house.longitude}" %>
 	</div>
 
 </div>
