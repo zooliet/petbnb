@@ -1,24 +1,4 @@
 <div id="homes">
-	<div class="search">	
-		<%= form_tag(pet_houses_path, method: :get) 	do %>
-			<%= text_field_tag :location, params[:location], placeholder: "address"%>
-			<%= datetime_select("trip", "departing", :default => 3.days.from_now) %>
-			<%= text_field_tag :pets, nil, placeholder: "# of Pets" %>
-			<%= submit_tag "Search" %>
-		<% end %>
-	</div>
-
-	<div class="search">
-		<%= form_tag(pet_houses_path, method: :get) 	do %>
-			<%= text_field_tag :location, params[:location], placeholder: "Location"%>
-			<%= text_field_tag :from_date, params[:from_date], placeholder: "Check in"%>
-			<%= text_field_tag :to_date, params[:to_date], placeholder: "Check out"%>
-			<%= select_tag :pets, 
-					options_for_select([["1 pet", "1"], ["2 pets", "2"], ["3+ pets", "3"]], ["#{params[:pets]}"])%>
-			<%= submit_tag "Search", name: nil %>
-		<% end %>
-	</div>
-
 	<div class="search">
 		<%= form_for(@search, url: pet_houses_path, method: :get) do |f| %>
 			<%= f.text_field :location, placeholder: "Location"%>

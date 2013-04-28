@@ -24,7 +24,8 @@ puts "*** Creating User ***"
 10.times do |i|
   User.create do |u|
     u.name  = NAMES[rand(NAMES.length-1)]
-    u.email = "#{u.name.downcase}_#{i}@google.com"
+    u.password = "12345678"
+    u.email = "#{u.name.downcase}_#{i}@petbnb.com"
     u.phone = "010-000-00#{i}"
   end
 end
@@ -43,7 +44,4 @@ puts "*** Creating PetHouse ***"
     u.save
   end
 end
-
-
-
 
