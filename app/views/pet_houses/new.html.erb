@@ -1,86 +1,62 @@
+<div id="pet_house_new">
+	<h1>B&B Registration</h1>
+	<%= form_for @pet_house do |f| %>
+		<div class="field">
+			<%= f.label :title %><br/>
+			<%= f.text_field :title %>
+		</div>
 
-<table>
-<p> 숙박 시설을 등록해 주세요. </p>
-<%= form_for(@pet_house) do |f| %>
-<tr>
-	<td>
-			 <%= f.label :title %>
-	</td>
-	<td>
-			<%= f.text_field :title, placeholder: "Title" %>
-			<%=  @pet_house.errors[:title].to_sentence %>
-	</td>
+<!--
+		<div class="field">
+			<%= f.label :address %><br/>
+			<%= f.text_field :address  %>
+		</div>
+-->
 
-</tr>
+		<div class="field">
+			<%= f.label :city %><br/>
+			<%= f.text_field :city, placeholder: "시 또는 군"  %>
+		</div>
 
-<tr>
-	<td>
-			 <%= f.label :address %>
-	</td>
-	<td>
-			<%= f.text_field :address, placeholder: "Address" %>
-			<%=  @pet_house.errors[:address].to_sentence %>
-	</td>
-</tr>
+		<div class="field">
+			<%= f.label :rest_address %><br/>
+			<%= f.text_field :rest_address, placeholder: "나머지 주소"  %>
+		</div>
 
-	<tr>
-		<td>
-				 <%= f.label :desc %>
-		</td>
-		<td>
-			<%= f.text_area :desc, placeholder: "Description" %>
-		</td>
-	</tr>
+		<div class="field">
+			<%= f.label :price, "Price per day" %><br/>
+			<%= f.text_field :price  %>
+			<span class='error'><%= @pet_house.errors[:price].to_sentence if @pet_house.errors[:price] %></span>
+		</div>
+		
+		<div class="field">
+			<%= f.label :desc, "Description" %><br/>
+			<%= f.text_area :desc, rows: 3 %>
+		</div>
 
-	<tr>
-		<td>
-				 <%= f.label :price %>
-		</td>
-		<td>
-			<%= f.text_field :price, placeholder: "Price" %>
-			<%=  @pet_house.errors[:price].to_sentence %>
-		</td>
+		<div class="field">
+			<%= f.label :no_of_pets, "No. of Pets" %><br/>
+			<%= f.select :no_of_pets, options_for_select([['One', 1],['Two', 2], ['More than 3', 3]])  %>
+		</div>
 
-	</tr>
+		<div class="field">
+			<%= f.label :size, "Size" %><br/>
+			<%= f.select :size, %w[S M L XL]  %>
+		</div>
 
-	<tr>
-		<td>
-				 <%= f.label :no_of_pets %>
-		</td>
-		<td>
-			<%= f.select :no_of_pets, 
-					options_for_select([["1 pet", "1"], ["2 pets", "2"], ["3+ pets", "3"]])%>
-		</td>
-	</tr>
+		<div class="field">
+			<%= f.label :overnight, "Overnight care" %><br/>
+			<%= f.check_box :overnight, checked: true  %> Yes
+		</div>
 
-	<tr>
-		<td>
-				 <%= f.label :size %>
-		</td>
-		<td>
-			<%= f.text_field :size, placeholder: "Size" %>
-		</td>
-	</tr>
+		<div class="field">
+			<%= f.label :image, "Photo" %><br/>
+			<%= f.file_field :image %>
+		</div>
 
-	<tr>
-		<td>
-				 <%= f.label :overnight %>
-		</td>
-		<td>
-			<%= f.check_box :overnight, checked: TRUE %>
-		</td>
-	</tr>
-
-
-
-
-
-	<tr>
-		<td>
-			<%= f.submit "등 록", name: nil %>
-		</td>
-	</tr>
-	
-
-<% end %>
-</table>
+		<div class="field">
+			<%= f.submit "등록" %>
+		</div>
+				
+	<% end %>
+</div>

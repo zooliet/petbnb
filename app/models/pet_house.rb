@@ -1,7 +1,8 @@
 #encoding: utf-8
 
 class PetHouse < ActiveRecord::Base
-  attr_accessible :address, :desc, :price, :user_id, :title, :no_of_pets, :size, :overnight
+  attr_accessible :address, :desc, :price, :user_id, :title, :no_of_pets, :size, :overnight,
+                  :city, :rest_address
   
   belongs_to :user
   has_many :reservations
@@ -34,6 +35,20 @@ class PetHouse < ActiveRecord::Base
     end
   end
   
+  def city
+    self.address.split(" ", 2).first if self.address.present?
+  end
+  
+  def rest_address
+    self.address.split(" ", 2).last if self.address.present?
+  end
+  
+  def city=(city)
+    self.address = [city, rest_address].join(" ")
+  end
 
+  def rest_address=(rest)
+    self.address = [city, rest].join(" ")
+  end
   
 end
