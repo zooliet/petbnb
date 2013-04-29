@@ -51,4 +51,10 @@ class PetHouse < ActiveRecord::Base
     self.address = [city, rest].join(" ")
   end
   
+  def books
+    reservations.map do |r|
+      (r.from_date.to_date .. r.to_date.to_date).to_a
+    end.flatten
+    
+  end
 end

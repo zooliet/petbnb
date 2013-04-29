@@ -15,6 +15,7 @@
 			<span class="title"><%= link_to house.title.truncate(60), pet_house_path(house, search: params[:search]) %></span>	
 			<span class="address"><%= house.city %></span>	
 			<span class="price"><%= number_to_currency(house.price, unit: '원', precision: 0, format: "%n %u") %></span>
+		  <span class="reservations"><%= link_to "예약 보러가기 ", reservations_path(pet_house_id: house.id) %></span>	
 		</div>
 	<% end %>
 </div>

@@ -1,5 +1,6 @@
 @import "compass";
 @import "scaffolds";
+@import "jquery.ui.datepicker";
 
 div#header {
 	width: 100%;
@@ -72,7 +73,7 @@ div#homes {
 }
 
 div.search {
-	text-align: center;
+	text-align: left;
 	height: 48px;
 	margin: 12px auto;
 	padding-top: 12px;
@@ -81,8 +82,9 @@ div.search {
 	background-color: rgba(black, 0.5);
 	
 	input, select {
+		width: 120px;
 		font-size: 14px;
-		padding: 5px 15px;
+		padding: 2px 15px;
 		color: rgba(black, 0.8);
 		border: 1px solid rgba(black, 0.1);
 		@include border-radius(4px);
@@ -117,6 +119,11 @@ div#pet_houses {
 			top: 12px	;
 			right: 12px;
 			font-size: 24px;
+		}
+		span.reservations {
+			top: 40px	;
+			right: 12px;
+			font-size: 16px;
 		}
 		a {
 			color: black;

@@ -3,4 +3,10 @@ class Reservation < ActiveRecord::Base
   
   belongs_to :pet_house
   belongs_to :customer, class_name: User
+  
+
+  def days
+      (from_date.to_date .. to_date.to_date).to_a
+  end 
+  
 end

@@ -1,2 +1,11 @@
-<h1>Reservations#new</h1>
-<p>Find me in app/views/reservations/new.html.erb</p>
+<h1> New Reservations</h1>
+<br> <%= "PetHouse : #{@pet_house.title}" %></br>
+<br></br>
+	<div class="reservation">
+		<%= form_for(@reservation, url: reservations_path, method: :post) do |f| %>
+			<%= f.hidden_field :pet_house_id %>
+			<%= f.text_field :from_date, placeholder: "Check in", size: 20 %>
+			<%= f.text_field :to_date, placeholder: "Check out", size: 20 %>
+			<%= f.submit "확 약", name: nil %>
+		<% end %>
+	</div>

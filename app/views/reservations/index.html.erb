@@ -1,2 +1,30 @@
-<h1>Reservations#index</h1>
-<p>Find me in app/views/reservations/index.html.erb</p>
+<h1> 예약 현황 </h1>
+
+	<%= " PetHouse Owner : #{@pet_house.user.name} " %>
+	<br>	<%= " PetHouse Title   : #{@pet_house.title} " %> </br>
+
+
+ <div id="reservations">
+	
+	<h2 id="month" >
+		<%= link_to "<<", params.merge(date: @date.prev_month) %>
+		<%= @date.strftime("%B %Y") %>
+		<%= link_to ">>", params.merge(date: @date.next_month) %>
+	</h2>		
+ 	<%= calendar(@date) do |date| %>
+ 		<%= date.day %>
+		<% if @pet_house.books.include? date %>
+		  <br> <%= "Reserved" %> </br>
+		  <% @pet_house.reservations.each do |r| %>
+				<% if r.days.include? date %>
+					<%= r.customer.name %>
+				<% end %>
+			<% end %>
+		<% else %>
+			<%= link_to "예약", new_reservation_path(params.merge(date: date)) %>
+		<% end %>
+ 	<% end %>
+ </div>
+
+
+

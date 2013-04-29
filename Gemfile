@@ -19,6 +19,8 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 	gem 'compass-rails'
+	# calendar gem
+	gem 'jquery-ui-rails'
 end
 
 gem 'jquery-rails'
