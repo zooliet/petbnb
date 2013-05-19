@@ -1,2 +1,8 @@
-<h1>Reservations#new</h1>
-<p>Find me in app/views/reservations/new.html.erb</p>
+<h1>New Reservation</h1>
+
+<%= form_for(@reservation) do |f| %>
+	<%= f.hidden_field :pet_house_id %> 
+	<%= f.text_field :from_date, placeholder: "Check in", size: 20 %> -
+	<%= f.text_field :to_date, placeholder: "Check out", size: 20 %>
+	<%= f.submit "에약" %>
+<% end %>

@@ -1,11 +1,18 @@
 <div id="reservations">
 	<h2 id="month">
-		<%= link_to "<<", date: @date.prev_month %>
+		<%= link_to "<<", reservations_path(pet_house_id: @pet_house.id, date: @date.prev_month) %>
+		<%= link_to "<<", params.merge(date: @date.prev_month) %>
 		<%= @date.strftime("%B %Y") %>   
-		<%= link_to ">>", date: @date.next_month %>
+		<%= link_to ">>", params.merge(date: @date.next_month) %>
 	</h2>
 		
-	<%= calendar(3.weeks.from_now.to_date) do |date| %>
+	<%= calendar() do |date| %>
 		<%= date.day  %>
+		<% if @bookings.include?(date) %>
+			<%= link_to "예약", new_reservation_path(pet_house_id: @pet_house.id) %>
+		<% else %>
+			<%= link_to "예약", new_reservation_path(pet_house_id: @pet_house.id) %>		
+		<% end %>
+		<%#= link_to "예약", new_reservation_path(pet_house_id: @pet_house.id) %>
 	<% end %>	
 </div>
